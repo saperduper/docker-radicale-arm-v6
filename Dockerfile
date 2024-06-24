@@ -41,6 +41,7 @@ RUN apk add --no-cache --virtual=build-dependencies \
         py3-tz \
         py3-pip \
     && python -m venv /venv \
+    && /venv/bin/pip install bcrypt==3.2.2 \
     && /venv/bin/pip install --no-cache-dir radicale==$VERSION passlib[bcrypt] \
     && apk del --purge build-dependencies \
     && addgroup -g $BUILD_GID radicale \
